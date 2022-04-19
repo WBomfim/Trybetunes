@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
+import './Search.css';
 
 class Search extends Component {
   constructor() {
@@ -29,26 +30,28 @@ class Search extends Component {
     const { artistName, checkSearch } = this.state;
 
     return (
-      <div className="Search" data-testid="page-search">
+      <div>
         <Header />
-        <form>
-          <input
-            type="text"
-            name="artistName"
-            placeholder="Nome do Artista"
-            value={ artistName }
-            onChange={ this.hendleChange }
-            data-testid="search-artist-input"
-          />
-          <button
-            type="submit"
-            disabled={ checkSearch }
-            onClick={ this.searchArtist }
-            data-testid="search-artist-button"
-          >
-            Procurar
-          </button>
-        </form>
+        <div className="Search" data-testid="page-search">
+          <form>
+            <input
+              type="text"
+              name="artistName"
+              placeholder="Nome do Artista"
+              value={ artistName }
+              onChange={ this.hendleChange }
+              data-testid="search-artist-input"
+            />
+            <button
+              type="submit"
+              disabled={ checkSearch }
+              onClick={ this.searchArtist }
+              data-testid="search-artist-button"
+            >
+              Procurar
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
