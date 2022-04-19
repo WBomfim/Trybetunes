@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
+import { createUser } from '../services/userAPI';
 import './Login.css';
-
-const { createUser } = require('../services/userAPI');
 
 class Login extends Component {
   constructor() {
