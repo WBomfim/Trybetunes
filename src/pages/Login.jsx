@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
 import './Login.css';
@@ -11,7 +11,6 @@ class Login extends Component {
       checkLogin: true,
       username: '',
       loading: false,
-      redirect: false,
     };
   }
 
@@ -33,14 +32,11 @@ class Login extends Component {
   saveUser = async (event) => {
     event.preventDefault();
     this.setState({ loading: true });
+    const { history } = this.props;
     const { username } = this.state;
     const objUser = { name: username };
     await createUser(objUser);
-    this.setState({
-      loading: false,
-      username: '',
-      redirect: true,
-    });
+    history.push('/search'); // Utilizado o objct history para redirecionar, solução discutida na thread do Gustavo Silva.
   }
 
   changeHender = () => {
@@ -74,13 +70,18 @@ class Login extends Component {
   }
 
   render() {
-    const { redirect } = this.state;
     return (
       <div className="Login" data-testid="page-login">
-        { redirect ? <Redirect to="/search" /> : this.changeHender() }
+        { this.changeHender() }
       </div>
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Login;
