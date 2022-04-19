@@ -48,24 +48,27 @@ class Login extends Component {
     }
 
     return (
-      <form>
-        <input
-          type="text"
-          placeholder="Nome de Usuário"
-          name="usuario"
-          value={ user }
-          onChange={ this.hendleChange }
-          data-testid="login-name-input"
-        />
-        <button
-          type="submit"
-          disabled={ checkLogin }
-          onClick={ this.saveUser }
-          data-testid="login-submit-button"
-        >
-          Entrar
-        </button>
-      </form>
+      <div>
+        <h1>Trybetunes</h1>
+        <form>
+          <input
+            type="text"
+            placeholder="Nome de Usuário"
+            name="usuario"
+            value={ user }
+            onChange={ this.hendleChange }
+            data-testid="login-name-input"
+          />
+          <button
+            type="submit"
+            disabled={ checkLogin }
+            onClick={ this.saveUser }
+            data-testid="login-submit-button"
+          >
+            Entrar
+          </button>
+        </form>
+      </div>
     );
   }
 
