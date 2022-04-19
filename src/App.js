@@ -9,6 +9,12 @@ import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
   render() {
     return (
       <Switch>
@@ -17,7 +23,7 @@ class App extends React.Component {
         <Route path="/favorites" component={ Favorites } />
         <Route path="/album/:id" component={ Album } />
         <Route path="/search" component={ Search } />
-        <Route exact path="/" component={ Login } />
+        <Route exact path="/" render={ () => <Login /> } />
         <Route component={ NotFound } />
       </Switch>
     );
