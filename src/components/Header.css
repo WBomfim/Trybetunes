@@ -2,6 +2,16 @@ header {
   text-align: center;
 }
 
+header .title {
+  display: flex;
+  justify-content: space-around;
+}
+
 header p {
   font-size: 30px;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-around;
 }
