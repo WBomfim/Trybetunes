@@ -21,11 +21,16 @@ class Album extends Component {
   setMusics = async () => {
     const { match: { params: { id } } } = this.props;
     const musics = await getMusics(id);
+    const filteredMusics = this.filterMusics(musics);
     this.setState({
-      musics,
+      musics: filteredMusics,
       artistName: musics[0].artistName,
       albumName: musics[0].collectionName,
     });
+  }
+
+  filterMusics(musics) {
+    return musics.filter((music) => music.trackId !== undefined);
   }
 
   render() {
