@@ -48,6 +48,8 @@ class Search extends Component {
     const { albums } = this.state;
     if (albums.length === 0) {
       this.setState({ NotAlbums: true });
+    } else {
+      this.setState({ NotAlbums: false });
     }
   }
 
