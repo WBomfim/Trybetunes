@@ -7,3 +7,27 @@
 .Search form {
   padding: 40px;
 }
+
+.Search .albums-preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.Search .album {
+  align-items: center;
+  background: rgb(223, 223, 223);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+}
+
+.search-preview {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

@@ -56,7 +56,7 @@ class Search extends Component {
   renderAlbuns = () => {
     const { albums } = this.state;
     return albums.map((album) => (
-      <div key={ album.collectionId }>
+      <div className="album" key={ album.collectionId }>
         <Link
           to={ `/album/${album.collectionId}` }
           data-testid={ `link-to-album-${album.collectionId}` }
@@ -107,11 +107,13 @@ class Search extends Component {
                     Procurar
                   </button>
                 </form>
-                <div>
+                <div className="search-preview">
                   { albums.length !== 0
                     ? <p>{ `Resultado de álbuns de: ${searchName}` }</p> : null }
                   { NotAlbums && <p>Nenhum álbum foi encontrado</p> }
-                  { this.renderAlbuns() }
+                  <div className="albums-preview">
+                    { this.renderAlbuns() }
+                  </div>
                 </div>
               </>
             )}
