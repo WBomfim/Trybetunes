@@ -1,7 +1,7 @@
 .Album {
-  display: flex;
   align-items: flex-start;
+  display: flex;
+  gap: 100px;
   justify-content: center;
   width: 100%;
-  gap: 100px;
 }
