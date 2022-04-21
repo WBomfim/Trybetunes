@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 import { getUser, updateUser } from '../services/userAPI';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+import './ProfileEdit.css';
 
 class ProfileEdit extends Component {
   constructor() {
@@ -48,9 +49,9 @@ class ProfileEdit extends Component {
   render() {
     const { image, name, email, description, checkInformation, loading } = this.state;
     return (
-      <div className="ProfileEdit" data-testid="page-profile-edit">
+      <div data-testid="page-profile-edit">
         <Header />
-        <div>
+        <div className="ProfileEdit">
           { loading && <Loading /> }
           { !loading && (
             <form>
