@@ -34,11 +34,12 @@ class MusicCard extends Component {
   }
 
   getFavorite = async () => {
+    this.setState({ loading: true });
     const { music } = this.props;
     const { trackId } = music;
     const favoriteSongs = await getFavoriteSongs();
     const favorite = favoriteSongs.some((song) => song.trackId === trackId);
-    this.setState({ favorite });
+    this.setState({ favorite }, () => this.setState({ loading: false }));
   }
 
   render() {
