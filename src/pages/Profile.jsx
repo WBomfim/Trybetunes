@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+import './Profile.css';
 
 class Profile extends Component {
   constructor() {
@@ -26,9 +27,9 @@ class Profile extends Component {
   render() {
     const { image, name, email, description, loading } = this.state;
     return (
-      <div className="Profile" data-testid="page-profile">
+      <div data-testid="page-profile">
         <Header />
-        <div>
+        <div className="Profile">
           {loading && <Loading />}
           {!loading && (
             <>
