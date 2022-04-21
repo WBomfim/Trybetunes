@@ -26,13 +26,14 @@ class MusicCard extends Component {
   setFavorite = async () => {
     this.setState({ loading: true });
     const { favorite } = this.state;
-    const { music } = this.props;
+    const { music, update } = this.props;
     if (favorite) {
       await addSong(music);
     } else {
       await removeSong(music);
     }
     this.setState({ loading: false });
+    update();
   }
 
   getFavorite = async () => {
@@ -83,6 +84,11 @@ MusicCard.propTypes = {
     previewUrl: PropTypes.string,
     trackId: PropTypes.number,
   }).isRequired,
+  update: PropTypes.func,
+};
+
+MusicCard.defaultProps = {
+  update: () => {},
 };
 
 export default MusicCard;
