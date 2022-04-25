@@ -38,16 +38,15 @@ class MusicCard extends Component {
 
   getFavorite = async () => {
     this.setState({ loading: true });
-    const { music } = this.props;
-    const { trackId } = music;
+    const { trackId } = this.props;
     const favoriteSongs = await getFavoriteSongs();
     const favorite = favoriteSongs.some((song) => song.trackId === trackId);
     this.setState({ favorite }, () => this.setState({ loading: false }));
   }
 
   render() {
-    const { music } = this.props;
-    const { trackName, previewUrl, trackId } = music;
+    const { music, trackId } = this.props;
+    const { trackName, previewUrl } = music;
     const { favorite, loading } = this.state;
 
     return (
@@ -82,8 +81,8 @@ MusicCard.propTypes = {
   music: PropTypes.shape({
     trackName: PropTypes.string,
     previewUrl: PropTypes.string,
-    trackId: PropTypes.number,
   }).isRequired,
+  trackId: PropTypes.number.isRequired,
   update: PropTypes.func,
 };
 

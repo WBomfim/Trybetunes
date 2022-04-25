@@ -36,6 +36,7 @@ class Favorites extends Component {
               <MusicCard
                 key={ music.trackId }
                 music={ music }
+                trackId={ Number(music.trackId) }
                 update={ () => this.getFavorite() }
               />
             ))
